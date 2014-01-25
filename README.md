@@ -41,7 +41,7 @@ http://api-portal.nhk.or.jp/doc_info-v1_con
 ```scala
 val program = NHK.programs.find(Area.東京, Service.Sogo1, programs.head.id)
 ```
-#### Onw On Air API
+#### Now On Air API
 
 http://api-portal.nhk.or.jp/doc_now-v1_con
 
