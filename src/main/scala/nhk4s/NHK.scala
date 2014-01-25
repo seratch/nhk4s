@@ -17,7 +17,7 @@ object NHK {
   object Service {
 
     val 総合1 = "g1"
-    val 総合２ = "g2"
+    val 総合2 = "g2"
     val Eテレ1 = "e1"
     val Eテレ2 = "e2"
     val Eテレ3 = "e3"
@@ -38,7 +38,7 @@ object NHK {
     val 全部 = "all"
 
     val Sogo1 = "g1"
-    val Sogo２ = "g2"
+    val Sogo2 = "g2"
     val E_Tele1 = "e1"
     val E_Tele2 = "e2"
     val E_Tele3 = "e3"
