@@ -40,7 +40,7 @@ class UsageSpec extends FunSpec with ShouldMatchers {
 
     it("calls 番組詳細 API") {
       val 見つかったの = NHK.番組表.番組一覧(エリア.京都, サービス.FM, 明日)
-      val 詳細 = NHK.番組表.find(エリア.京都, サービス.FM, 見つかったの.head.id)
+      val 詳細 = NHK.番組表.番組詳細(エリア.京都, サービス.FM, 見つかったの.head.id)
       println(詳細)
       詳細.isDefined should be(true)
     }

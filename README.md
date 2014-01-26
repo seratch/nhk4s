@@ -62,7 +62,7 @@ val program = NHK.programs.find(Area.東京, Service.Sogo1, programs.head.id)
 日本語でも使えます。
 
 ```scala
-val 見つかった番組 = NHK.番組表.番組一覧(エリア.京都, サービス.FM, 明日)
+val 番組の詳細 = NHK.番組表.番組詳細(エリア.京都, サービス.FM, 番組.id)
 ```
 
 #### Now On Air API
