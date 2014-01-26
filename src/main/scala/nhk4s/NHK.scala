@@ -181,8 +181,10 @@ object NHK {
   // ---------------------
 
   def programs: NHKProgramGuideAPI = programsWithApiKey()
+  def 番組表: NHKProgramGuideAPI = programs
 
   def programsWithApiKey(apiKey: String = System.getenv(ENV_API_KEY)): NHKProgramGuideAPI = new NHKProgramGuideAPI(apiKey)
+  def 番組表withApiKey(apiKey: String = System.getenv(ENV_API_KEY)) = programsWithApiKey(apiKey)
 
   case class NHKProgramGuideAPI(apiKey: String) extends jackson.JsonMethods {
 
@@ -226,6 +228,7 @@ object NHK {
         .headOption
         .map(pg => Program(pg))
     }
+    def 番組詳細(area: Area, serviceId: String, programId: Long): Option[Program] = find(area, serviceId, programId)
 
     def findNowOnAir(area: Area, serviceId: String): Seq[NowOnAirPrograms] = {
       val jsonResponse = Source.fromURL(nowApiEndpoint(area.id, serviceId), "utf-8").mkString
@@ -237,6 +240,7 @@ object NHK {
         .getOrElse(Nil).toSeq
         .map(n => NowOnAirPrograms(n))
     }
+    def 放送中(area: Area, serviceId: String): Seq[NowOnAirPrograms] = findNowOnAir(area, serviceId)
 
     def findAll(area: Area, serviceId: String, date: LocalDate = today): Seq[Program] = {
       val jsonResponse = Source.fromURL(listApiEndpoint(area.id, serviceId, date), "utf-8").mkString
@@ -247,6 +251,7 @@ object NHK {
         .getOrElse(Nil)
         .map(pg => Program(pg))
     }
+    def 番組一覧(area: Area, serviceId: String, date: LocalDate = today): Seq[Program] = findAll(area, serviceId, date)
 
     def findAllByGenre(area: Area, serviceId: String, genreId: String, date: LocalDate = today): Seq[Program] = {
       val jsonResponse = Source.fromURL(genreApiEndpoint(area.id, serviceId, genreId, date), "utf-8").mkString
@@ -256,6 +261,9 @@ object NHK {
         .map[List[_Program]](_.extract[List[_Program]])
         .getOrElse(Nil)
         .map(pg => Program(pg))
+    }
+    def ジャンルで番組一覧(area: Area, serviceId: String, genreId: String, date: LocalDate = today): Seq[Program] = {
+      findAllByGenre(area, serviceId, genreId, date)
     }
 
   }
