@@ -12,7 +12,7 @@ http://api-portal.nhk.or.jp/ja/ServiceGuide
 Just add nhk4s to your dependencies.
 
 ```scala
-libraryDependencies += "com.github.seratch" %% "nhk4s" % "0.1.1"
+libraryDependencies += "com.github.seratch" %% "nhk4s" % "0.1.2"
 ```
 
 Get API key on the NHK API portal site.
@@ -42,13 +42,13 @@ val 番組一覧 = NHK.番組表.番組一覧(エリア.東京, サービス.総
 http://api-portal.nhk.or.jp/doc_genre-v1_con
 
 ```scala
-val programsInGenre0000 = NHK.programs.findAllByGenre(Area.Tokyo, Service.Sogo1, "0000", today)
+val programsInGenre0000 = NHK.programs.findAllByGenre(Area.Nagoya, Service.ETele1, "0000", today)
 ```
 
 日本語でも使えます。
 
 ```scala
-val 番組一覧 = NHK.番組表.ジャンルで番組一覧(エリア.東京, サービス.総合2, "0000", 今日)
+val 番組一覧 = NHK.番組表.ジャンルで番組一覧(エリア.名古屋, サービス.Eテレ1, "0000", 今日)
 ```
 
 #### Program Info API
@@ -56,13 +56,13 @@ val 番組一覧 = NHK.番組表.ジャンルで番組一覧(エリア.東京, �
 http://api-portal.nhk.or.jp/doc_info-v1_con
 
 ```scala
-val program = NHK.programs.find(Area.東京, Service.Sogo1, programs.head.id)
+val program = NHK.programs.find(Area.Okinawa, Service.FM, programs.head.id)
 ```
 
 日本語でも使えます。
 
 ```scala
-val 番組の詳細 = NHK.番組表.番組詳細(エリア.京都, サービス.FM, 番組.id)
+val 番組の詳細 = NHK.番組表.番組詳細(エリア.沖縄, サービス.FM, 番組.id)
 ```
 
 #### Now On Air API
@@ -70,13 +70,13 @@ val 番組の詳細 = NHK.番組表.番組詳細(エリア.京都, サービス.
 http://api-portal.nhk.or.jp/doc_now-v1_con
 
 ```scala
-val nowOnAir = NHK.programs.findNowOnAir(Area.Hiroshima, Service.All)
+val nowOnAir = NHK.programs.findNowOnAir(Area.Hiroshima, Service.TV)
 ```
 
 日本語でも使えます。
 
 ```scala
-val 放送中 = NHK.番組表.放送中(エリア.広島, サービス.全部)
+val 放送中 = NHK.番組表.放送中(エリア.広島, サービス.テレビ全部)
 ```
 
 ### License

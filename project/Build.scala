@@ -8,7 +8,7 @@ object NHK4SProject extends Build {
   lazy val mainSettings: Seq[Project.Setting[_]] = Defaults.defaultSettings ++ Seq(
     organization := "com.github.seratch",
     name := "nhk4s",
-    version := "0.1.1",
+    version := "0.1.2",
     scalaVersion := "2.10.3",
     crossScalaVersions := Seq("2.9.3", "2.10.0"),
     libraryDependencies ++= Seq(
