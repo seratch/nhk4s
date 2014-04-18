@@ -10,12 +10,19 @@ object NHK4SProject extends Build {
     name := "nhk4s",
     version := "0.1.2",
     scalaVersion := "2.10.3",
+    // TODO waiting for json4s
+    //crossScalaVersions := Seq("2.11.0", "2.10.3"),
+    crossScalaVersions := Seq("2.10.3"),
+    resolvers ++= Seq(
+      "sonatype releases" at "http://oss.sonatype.org/content/repositories/releases",
+      "sonatype snaphots" at "http://oss.sonatype.org/content/repositories/snapshots"
+    ),
     libraryDependencies ++= Seq(
       "joda-time"        %  "joda-time"       % "2.3",
-      "org.joda"         %  "joda-convert"    % "1.5",
-      "org.json4s"       %% "json4s-jackson"  % "3.2.6",
-      "org.json4s"       %% "json4s-ext"      % "3.2.6",
-      "org.scalatest"    %% "scalatest"       % "1.9.2"  % "test"
+      "org.joda"         %  "joda-convert"    % "1.6",
+      "org.json4s"       %% "json4s-jackson"  % "3.2.8",
+      "org.json4s"       %% "json4s-ext"      % "3.2.8",
+      "org.scalatest"    %% "scalatest"       % "2.1.3"  % "test"
     ),
     publishTo <<= version { (v: String) => 
       val nexus = "https://oss.sonatype.org/"
@@ -24,6 +31,8 @@ object NHK4SProject extends Build {
     },
     publishMavenStyle := true,
     sbtPlugin := false,
+    transitiveClassifiers in Global := Seq(Artifact.SourceClassifier),
+    incOptions := incOptions.value.withNameHashing(true),
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
     publishMavenStyle := true,
     publishArtifact in Test := false,

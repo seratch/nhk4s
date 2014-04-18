@@ -1,7 +1,6 @@
-import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest._
 
-class UsageSpec extends FunSpec with ShouldMatchers {
+class UsageSpec extends FunSpec with Matchers {
 
   import nhk4s._
 
