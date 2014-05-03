@@ -52,7 +52,7 @@ object NHK4SProject extends Build {
       <developers>
         <developer>
           <id>seratch</id>
-          <name>Kazuhuiro Sera</name>
+          <name>Kazuhiro Sera</name>
           <url>http://seratch.net/</url>
         </developer>
       </developers>
