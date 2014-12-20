@@ -185,6 +185,7 @@ object NHK {
 
   def programsWithApiKey(apiKey: String = System.getenv(ENV_API_KEY)): NHKProgramGuideAPI = new NHKProgramGuideAPI(apiKey)
   def 番組表withApiKey(apiKey: String = System.getenv(ENV_API_KEY)) = programsWithApiKey(apiKey)
+  def APIキーで番組表(apiKey: String = System.getenv(ENV_API_KEY)) = programsWithApiKey(apiKey)
 
   case class NHKProgramGuideAPI(apiKey: String) extends jackson.JsonMethods {
 
@@ -193,7 +194,7 @@ object NHK {
         """
           | ***************** NHK API Key Required ************************
           |
-          |  1. Go to http://api-portal.nhk.or.jp/ja and register new app.
+          |  1. Go to http://api-portal.nhk.or.jp/ and register new app.
           |  2. export NHK_API_KEY=(API key value)
           |
           | ***************************************************************
