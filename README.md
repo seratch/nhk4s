@@ -12,7 +12,7 @@ http://api-portal.nhk.or.jp/ja/ServiceGuide
 Just add nhk4s to your dependencies.
 
 ```scala
-libraryDependencies += "com.github.seratch" %% "nhk4s" % "1.0.0"
+libraryDependencies += "com.github.seratch" %% "nhk4s" % "1.1.0"
 ```
 
 Get API key on the NHK API portal site.
