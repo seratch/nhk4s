@@ -2,16 +2,16 @@ lazy val root = (project in file("."))
   .settings(
     organization := "com.github.seratch",
     name := "nhk4s",
-    version := "1.0.0",
-    scalaVersion := "2.11.5",
-    crossScalaVersions := Seq("2.11.4", "2.10.5"),
+    version := "1.1.0",
+    scalaVersion := "2.11.7",
+    crossScalaVersions := Seq("2.11.7", "2.10.6"),
     resolvers += "sonatype releases" at "http://oss.sonatype.org/content/repositories/releases",
     libraryDependencies ++= Seq(
-      "joda-time"        %  "joda-time"       % "2.7",
-      "org.joda"         %  "joda-convert"    % "1.7",
-      "org.json4s"       %% "json4s-jackson"  % "3.2.11",
-      "org.json4s"       %% "json4s-ext"      % "3.2.11",
-      "org.scalatest"    %% "scalatest"       % "2.2.3"  % "test"
+      "joda-time"        %  "joda-time"       % "2.8.2",
+      "org.joda"         %  "joda-convert"    % "1.8.1",
+      "org.json4s"       %% "json4s-jackson"  % "3.3.0",
+      "org.json4s"       %% "json4s-ext"      % "3.3.0",
+      "org.scalatest"    %% "scalatest"       % "2.2.5"  % "test"
     ),
     publishTo <<= version { (v: String) => 
       val nexus = "https://oss.sonatype.org/"
@@ -46,6 +46,5 @@ lazy val root = (project in file("."))
         </developer>
       </developers>
   ).settings(scalariformSettings: _*)
-   .settings(sonatypeSettings: _*)
    .settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*)
 
