@@ -1,5 +1,7 @@
 ## NHK4S
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.seratch/nhk4s_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.seratch/nhk4s_2.11)
+
 This is an "NHK 番組表 API" client library for Scala.
 
 http://api-portal.nhk.or.jp/
